@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Gochi+Hand');
+
+body {
+  background-color: #a39bd2;
+  min-height: 70vh;
+  padding: 1rem;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: hsl(198, 1%, 29%);
+  font-family: 'Gochi Hand', cursive;
+  text-align: center;
+  font-size: 130%;  
+}
+.container {
+  width: 100%;
+  height: auto;
+  min-height: 500px;
+  max-width: 500px;
+  min-width: 250px;
+  background: #f1f5f8;
+  background-image: radial-gradient(#bfc0c1 7.2%, transparent 0);
+  background-size: 25px 25px;
+  border-radius: 20px;
+  box-shadow: 4px 3px 7px 2px #00000040;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+header{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.text-header{
+  border-radius: 10%;
+  border:#a39bd2;
+  border-color:aqua;
+  border-width: 15px;
+  background-color: hsla(166, 100%, 50%, 0.7);
+  font-size: 1.5rem;
+  max-width: 200px;
+  max-height: 30px;
+  padding: 10px;
+  margin: 20px;
+  transform: perspective(500px) rotateY(calc(20deg*var(--_i,-1)));
+  text-shadow: calc(var(--_i,-1)* 0.08em) -.01em 0  var(--c),
+    calc(var(--_i,-1)*-0.08em) .01em 2px;
+  outline-offset: .1em;
+  transition: 0.3s;
+}
+.text-header:hover,
+ .text-header:focus-visible {
+  --_p: 0%;
+  --_i: 1;
+ }
+.heading-img{
+  max-width: 25%;
+}
+.box{
+  display: flex;
+  justify-content: center;
+}
+.input-text{
+  border: none;
+  border-bottom: #a39bd2 dotted ;
+  font-family: inherit;
+  background: #f1f5f8;
+  background-image: radial-gradient(#bfc0c1 7.2%, transparent 0);
+  background-size: 25px 25px;
+}
+.input-text:focus, input:focus {
+  outline: none;
+  border-bottom: #a39bd2 solid;
+  transition: border-bottom 2s from 1px solid #ccc;
+}
+.add-button-container{
+  margin-left: 5px;
+  padding-left: 15px;
+}
+.add-button {
+  padding: 0;
+  border: none;
+  transform: rotate(4deg);
+  transform-origin: center;
+  font-family: inherit;
+  text-decoration: none;
+  padding-bottom: 3px;
+  border-radius: 8px;
+  box-shadow: 0 1px 0 hsl(198, 1%, 29%);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  background-image: url('data:image/gif;base64,R0lGODlhBAAEAIABAAAAAAAAACH/C1hNUCBEYXRhWE1QPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS4wLWMwNjEgNjQuMTQwOTQ5LCAyMDEwLzEyLzA3LTEwOjU3OjAxICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1LjEgV2luZG93cyIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo5NUY1OENCRDdDMDYxMUUyOTEzMEE1MEM5QzM0NDVBMyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo5NUY1OENCRTdDMDYxMUUyOTEzMEE1MEM5QzM0NDVBMyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjk1RjU4Q0JCN0MwNjExRTI5MTMwQTUwQzlDMzQ0NUEzIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjk1RjU4Q0JDN0MwNjExRTI5MTMwQTUwQzlDMzQ0NUEzIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+Af/+/fz7+vn49/b19PPy8fDv7u3s6+rp6Ofm5eTj4uHg397d3Nva2djX1tXU09LR0M/OzczLysnIx8bFxMPCwcC/vr28u7q5uLe2tbSzsrGwr66trKuqqainpqWko6KhoJ+enZybmpmYl5aVlJOSkZCPjo2Mi4qJiIeGhYSDgoGAf359fHt6eXh3dnV0c3JxcG9ubWxramloZ2ZlZGNiYWBfXl1cW1pZWFdWVVRTUlFQT05NTEtKSUhHRkVEQ0JBQD8+PTw7Ojk4NzY1NDMyMTAvLi0sKyopKCcmJSQjIiEgHx4dHBsaGRgXFhUUExIREA8ODQwLCgkIBwYFBAMCAQAAIfkEAQAAAQAsAAAAAAQABAAAAgYEEpdoeQUAOw==');
+  background-color: hsla(166, 100%, 50%, 0.7);
+}
+.add-button span {
+  background: #f1f5f8;
+  display: block;
+  padding: 0.3rem 0.1rem;
+  border-radius: 5px;
+  border: 2px solid hsl(198, 1%, 29%);
+}
+.add-button:active{
+  transform: translateY(0px);
+  padding-bottom: 0px;
+  outline: 0;
+}
+.delete-btn{
+  appearance: none;
+  background-color: transparent;
+  border: 2px solid hsla(166, 100%, 50%, 0.7);
+  border-radius: 15px;
+  box-sizing: border-box;
+  color: #3B3B3B;
+  cursor: pointer;
+  display: inline-block;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: normal;
+  margin: 15px;
+  min-height: 5px;
+  min-width: 0;
+  outline: none;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 70px;
+  will-change: transform;
+}
+.delete-btn:disabled {
+  pointer-events: none;
+}
+.delete-btn:hover {
+  color: hsla(166, 100%, 50%, 0.7);
+  border-color: #1A1A1A;
+  background-color: #1A1A1A;
+  box-shadow: hsl(198, 1%, 29%) 0 8px 15px;
+  transform: translateY(-2px);
+}
+.delete-btn:active {
+  box-shadow: none;
+  transform: translateY(0);
+}
+.addList {
+  text-align: left;
+  li {
+    position: relative;
+    padding: 0.5rem;
+  }
+  li:hover {
+    text-decoration: line-through wavy red;
+  }
+}
+.popup{
+  margin: 70px auto;
+  padding: 20px;
+  border-radius: 5px;
+  width: 30%;
+  position: relative;
+  transition: all 5s ease-in-out;
+  background: wheat;
+  background-image: radial-gradient(#bfc0c1 7.2%, transparent 0);
+  background-size: 25px 25px;
+}
+
+.close{
+  align-items: center;
+  appearance: none;
+  border-radius: 4px;
+  border-width: 0;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#D6D6E7 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #36395A;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "JetBrains Mono",monospace;
+  height: 48px;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transition: box-shadow .15s,transform .15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow,transform;
+  font-size: 18px;
+  margin: 20px;
+ }
+ .close:focus {
+  box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+ }
+ .close:hover {
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+  transform: translateY(-2px);
+ }
+ .close:active {
+  box-shadow: #D6D6E7 0 3px 7px inset;
+  transform: translateY(2px);
+ }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <img class="heading-img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/756881/laptop.svg">
+        <p class="text-header">to do list</p>
+      </header>
+      <p>~ today i need to do ~</p>
+      <div class="box">
+        <input type="text" class="input-text" size="30" required>
+        <div class="add-button-container">
+          <button class="add-button">
+            <span>Lets's do this!</span>
+          </button>
+        </div>
+      </div>
+      <div class="added">
+        <ul class="addList">
+        </ul>
+      </div>
+    </div>
+    <script>
+const addButton = document.getElementsByClassName("add-button")[0];
+const output = document.getElementsByClassName("addList")[0];
+let emptyArray = [];
+
+const storedArray = localStorage.getItem("todoList");
+if (storedArray) {
+  emptyArray = JSON.parse(storedArray);
+  for (let i = 0; i < emptyArray.length; i++) {
+    const listItem = document.createElement("li");
+    listItem.textContent = emptyArray[i];
+
+    const deleteButton = document.createElement("button");
+    deleteButton.textContent = "Done?";
+    deleteButton.classList.add("delete-btn");
+
+    deleteButton.addEventListener("click", function() {
+      output.removeChild(listItem);
+      emptyArray.shift(listItem);
+      localStorage.setItem("todoList", JSON.stringify(emptyArray));
+    });
+    listItem.appendChild(deleteButton);
+    output.appendChild(listItem);
+  }
+}
+
+function adding() {
+  const input = document.getElementsByClassName("input-text")[0];
+  const inputValue = input.value.trim();
+
+  if (inputValue === "") {
+    const popup = document.createElement("div");
+    popup.classList.add("popup");
+    popup.textContent = "Please enter a value to add!";
+
+    const closeButton = document.createElement("button");
+    closeButton.textContent = "Close";
+    closeButton.classList.add("close");
+    closeButton.addEventListener("click", () => popup.remove());
+    popup.appendChild(closeButton);
+    document.body.appendChild(popup);
+    return;
+  }
+  emptyArray.unshift(inputValue); 
+  console.log(emptyArray);
+  while (output.firstChild) {
+    output.removeChild(output.firstChild);
+  }
+
+  for (let i = 0; i < emptyArray.length; i++) {
+    const listItem = document.createElement("li");
+    listItem.textContent = emptyArray[i];
+
+    const deleteButton = document.createElement("button");
+    deleteButton.textContent = "Done?";
+    deleteButton.classList.add("delete-btn"); 
+
+    deleteButton.addEventListener("click", function() {
+      output.removeChild(listItem);
+      emptyArray.shift(listItem);
+      // Update local storage after deletion
+      localStorage.setItem("todoList", JSON.stringify(emptyArray));
+    });
+    listItem.appendChild(deleteButton);
+    output.appendChild(listItem);
+  }
+
+  input.value = "";
+  // Save the updated array to local storage after adding
+  localStorage.setItem("todoList", JSON.stringify(emptyArray));
+}
+
+addButton.addEventListener("click", adding);
+
+    </script>
+  </body>
+</html>
